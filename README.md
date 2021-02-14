@@ -3,6 +3,8 @@
 A collection of scripts for generating a plot showing the overall Kafka cluster
 topology of services deployed on a Kubernetes cluster.
 
+![Kafka Surveyor Graph](/docs/img/screenshot-zoomed.png)
+
 
 ## Approach 1: Consumer-Side Topology
 
