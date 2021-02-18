@@ -33,10 +33,7 @@ producing to which Kafka topics (see approach 2 below for that)_.
 
 
 ## Approach 2: Overall Topology (Java-only)
-_Note: I was on my Windows machine when I decided to work on this;
-consequently, the scripts are written in PowerShell_.
-
-_Note 2: The scripts will take rather long to run as it is querying each
+_Note: The scripts may take rather long to run as it is querying each
 service sequentially_.
 
 ### Usage
@@ -48,13 +45,23 @@ below for details and sample command).
 1. Ensure the environment variable `JMXTERM_PATH` is set to the path to the
 Uber JAR for Jmxterm.
 1. Generate the overall topology in JSON format by running the following
-command from this repository's root directory in a **Windows PowerShell**:
-   ```powershell
-   $ .\scripts\approach-2\kafka-producer-topology.ps1 |
-   Tee-Object -FilePath producer-topology.json
-   $ .\scripts\approach-2\kafka-consumer-topology.ps1 |
-   Tee-Object -FilePath consumer-topology.json
-   ```
+command from this repository's root directory
+
+   - in a **Linux shell**:
+      ```bash
+      > ./scripts/approach-2/kafka-producer-topology.sh |
+      tee producer-topology.json
+      > ./scripts/approach-2/kafka-consumer-topology.sh |
+      tee consumer-topology.json
+      ```
+
+   - or in a **Windows PowerShell**:
+      ```powershell
+      $ .\scripts\approach-2\kafka-producer-topology.ps1 |
+      Tee-Object -FilePath producer-topology.json
+      $ .\scripts\approach-2\kafka-consumer-topology.ps1 |
+      Tee-Object -FilePath consumer-topology.json
+      ```
 1. Combine the two JSON files and visualize the topology at
 https://yongjie.codes/kafka-surveyor.
 

@@ -146,7 +146,7 @@ function Get-KafkaProducerTopology
     foreach { 
       $AppLabel = $_.split('|')[0]
       $TopicName = $_.split('|')[1]
-      $JSONLine = "  { ""source"": ""${AppLabel}"", ""target"": ""${TopicName}"" },"
+      $JSONLine = "  { ""source"": ""${AppLabel}"", ""target"": ""${TopicName}"", ""type"": ""producing"" },"
       if (!$AppToTopicMappings.Contains($JSONLine)) {
         Write-Output $JSONLine
         $AppToTopicMappings[$JSONLine] = $true

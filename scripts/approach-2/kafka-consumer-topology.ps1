@@ -144,7 +144,7 @@ function Get-KafkaConsumerTopology
     foreach { 
       $AppLabel = $_.split('|')[0]
       $TopicName = $_.split('|')[1]
-      $JSONLine = "  { ""source"": ""${TopicName}"", ""target"": ""${AppLabel}"" },"
+      $JSONLine = "  { ""source"": ""${TopicName}"", ""target"": ""${AppLabel}"", ""type"": ""consuming"" },"
       if (!$AppToTopicMappings.Contains($JSONLine)) {
         Write-Output $JSONLine
         $AppToTopicMappings[$JSONLine] = $true
